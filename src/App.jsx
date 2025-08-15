@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 export default function App() {
-  const API_BASE_URL = "http://localhost:3001"; // Centralized API base URL
+  const API_BASE_URL = "https://skillsync-ai-server.onrender.com"; // Centralized API base URL
   
   const [file, setFile] = useState(null);
   const [jobDescription, setJobDescription] = useState("");
