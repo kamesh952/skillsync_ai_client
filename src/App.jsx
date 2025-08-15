@@ -503,7 +503,7 @@ export default function App() {
               Analyzing your resume with AI...
             </p>
             <p className="text-gray-400 font-body">
-              Processing with Google Gemini AI
+              Processing with advanced AI
             </p>
             <div className="mt-4 flex justify-center gap-2">
               {[...Array(3)].map((_, i) => (
@@ -531,7 +531,7 @@ export default function App() {
                     Analyzed at: {new Date(results.analyzedAt).toLocaleString()}
                   </p>
                   <p className="text-gray-300 mt-2 font-body">
-                    Your resume has been analyzed using Google Gemini AI against
+                    Your resume has been analyzed using advanced AI against
                     the job requirements.
                   </p>
                 </div>
