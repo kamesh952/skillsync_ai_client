@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 
 export default function App() {
+  const API_BASE_URL = "http://localhost:3001"; // Centralized API base URL
+  
   const [file, setFile] = useState(null);
   const [jobDescription, setJobDescription] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +20,7 @@ export default function App() {
 
   const checkApiHealth = async () => {
     try {
-      const response = await fetch("https://skillsync-ai-server.onrender.com/api/health");
+      const response = await fetch(`${API_BASE_URL}/api/health`);
       if (response.ok) {
         setApiStatus("connected");
       } else {
@@ -154,7 +156,7 @@ export default function App() {
 
     if (apiStatus === "error") {
       setError(
-        "Backend server is not available. Please ensure the server is running on http://localhost:3001"
+        "Backend server is not available. Please ensure the server is running"
       );
       return;
     }
@@ -169,7 +171,7 @@ export default function App() {
       formData.append("jobDescription", jobDescription);
 
       console.log("Sending request to backend...");
-      const response = await fetch("http://localhost:3001/api/analyze", {
+      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
         method: "POST",
         body: formData,
       });
@@ -208,7 +210,7 @@ export default function App() {
 
       if (err.message.includes("Failed to fetch")) {
         errorMessage =
-          "Cannot connect to the backend server. Please ensure the server is running on http://localhost:3001";
+          "Cannot connect to the backend server. Please ensure the server is running";
         setApiStatus("error");
       } else {
         errorMessage = err.message;
