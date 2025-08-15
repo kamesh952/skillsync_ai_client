@@ -18,7 +18,7 @@ export default function App() {
 
   const checkApiHealth = async () => {
     try {
-      const response = await fetch("http://localhost:3001/api/health");
+      const response = await fetch("https://skillsync-ai-server.onrender.com/api/health");
       if (response.ok) {
         setApiStatus("connected");
       } else {
